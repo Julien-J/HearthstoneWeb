@@ -21,7 +21,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages={"fr.jjouenne.repository"})
+@EnableJpaRepositories("fr.jjouenne.repository")
 public class PersistenceContext {
 
 	
@@ -55,14 +55,21 @@ public class PersistenceContext {
 		entityManagerFactoryBean.setPackagesToScan("net.petrikainulainen.springdata.jpa.todo");
 
 		Properties jpaProperties = new Properties();
+		try {
+			jpaProperties.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
 
-		jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
-
-		jpaProperties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl.auto"));
-		jpaProperties.put("hibernate.ejb.naming_strategy", env.getRequiredProperty("hibernate.ejb.naming_strategy"));
-		jpaProperties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
-
-		jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
+//		jpaProperties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl.auto"));
+//		jpaProperties.put("hibernate.ejb.naming_strategy", env.getRequiredProperty("hibernate.ejb.naming_strategy"));
+//		jpaProperties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
+//
+//		jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
+		
 		entityManagerFactoryBean.setJpaProperties(jpaProperties);
 		return entityManagerFactoryBean;
 	}
