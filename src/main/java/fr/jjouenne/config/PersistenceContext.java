@@ -1,10 +1,12 @@
 package fr.jjouenne.config;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -21,13 +23,27 @@ import com.zaxxer.hikari.HikariDataSource;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages={"fr.jjouenne.repository"})
 public class PersistenceContext {
+
+	
 	@Bean(destroyMethod = "close")
 	DataSource dataSource(Environment env) {
 		HikariConfig hc = new HikariConfig();
-		hc.setDriverClassName(env.getRequiredProperty("db.driver"));
-		hc.setJdbcUrl(env.getRequiredProperty("db.url"));
-		hc.setUsername(env.getRequiredProperty("db.username"));
-		hc.setPassword(env.getRequiredProperty("db.password"));
+//		hc.setDriverClassName(env.getRequiredProperty("db.driver"));
+//		hc.setJdbcUrl(env.getRequiredProperty("db.url"));
+//		hc.setUsername(env.getRequiredProperty("db.username"));
+//		hc.setPassword(env.getRequiredProperty("db.password"));
+		Properties prop = new Properties();
+		try {
+			prop.load(this.getClass().getClassLoader().getResourceAsStream("application.properties"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		hc.setDriverClassName(prop.getProperty("db.driver"));
+		hc.setJdbcUrl(prop.getProperty("db.url"));
+		hc.setUsername(prop.getProperty("db.username"));
+		hc.setPassword(prop.getProperty("db.password"));
 		return new HikariDataSource(hc);
 	}
 
