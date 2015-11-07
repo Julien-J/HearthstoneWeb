@@ -21,7 +21,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages={"fr.jjouenne.repository"})
+@EnableJpaRepositories("fr.jjouenne.repository")
 public class PersistenceContext {
 
 	
