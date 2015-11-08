@@ -31,5 +31,18 @@ public class CardTest {
 		}
 		assertTrue(founds.size() > 0);
 	}
-
+	
+	@Test
+	public void testFindOneCards() {
+		Card found = cardRepo.findOne((long) 1);
+		System.out.println(found.getLibelle());
+		assertNotNull(found);
+	}
+	
+	@Test
+	public void testFindOneByLibelle() {
+		Card found = cardRepo.findOneByLibelle("carte1");
+		System.out.println(found.getLibelle());
+		assertNotNull(found);
+	}
 }
