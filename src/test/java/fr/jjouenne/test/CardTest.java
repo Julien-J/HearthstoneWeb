@@ -9,12 +9,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import fr.jjouenne.config.PersistenceContext;
 import fr.jjouenne.entity.Card;
 import fr.jjouenne.repository.CardRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:application-context.xml" })
+@ContextConfiguration(classes=PersistenceContext.class, loader=AnnotationConfigContextLoader.class)
 public class CardTest {
 
 	@Autowired
@@ -23,6 +25,10 @@ public class CardTest {
 	@Test
 	public void testFindCards() {
 		List<Card> founds = cardRepo.findAll();
+		for (Card card : founds) {
+			System.out.println(card.getLibelle());
+			
+		}
 		assertTrue(founds.size() > 0);
 	}
 
