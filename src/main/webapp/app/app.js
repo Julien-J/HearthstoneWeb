@@ -8,7 +8,12 @@ app.config(function($routeProvider)
 		  controller : 'AccueilController as accueilController'
 		 }).when('/cards',{
 			 templateUrl : 'pages/cartes.html',
-			  controller : 'cardController as cardController'
+			  controller : 'CardsController as cardsController'
+		 }).when('/card/:id',{
+			 templateUrl : 'pages/carte.html',
+			 controller : 'CardController as cardController'
+		 }).when('/card/addCard',{
+			 templateUrl : 'pages/createCard.html',
+			 controller : 'AddCardController as addCardController'
 		 });
-	
 });

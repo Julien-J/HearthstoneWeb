@@ -1,6 +1,8 @@
 'use strict';
 
-
-app.controller("CardController",["Card",function(Card){
-	this.cards = Card.query();	
-}]);
+app.controller("CardController", [ "Card", "$routeParams",
+		function(Card, $routeParams) {
+			var id = $routeParams.id;
+			this.card = Card.get({id:id});
+		
+		} ]);

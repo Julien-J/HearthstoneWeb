@@ -1,4 +1,8 @@
-<div>cartes</div>
-<div ng-repeat="card in cardController.cards">
-	{{card.libelle}}
-</div>
+<h2>Cartes</h2>
+<a class="btn btn-primary" role="button" href="#/card/addCard">Nouvelle carte</a>
+<ul class="list-group">
+	<li ng-repeat="card in cardsController.cards" class="list-group-item">
+		<a href="#/card/{{card.id}}"><h4>{{card.libelle}}</h4></a>
+	</li>
+</ul>
+
