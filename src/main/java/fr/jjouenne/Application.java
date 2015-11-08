@@ -1,4 +1,4 @@
-package fr.jjouenne.bean;
+package fr.jjouenne;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
