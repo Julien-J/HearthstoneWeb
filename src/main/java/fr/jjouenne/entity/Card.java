@@ -1,4 +1,4 @@
-package fr.jjouenne.jpa.entity;
+package fr.jjouenne.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

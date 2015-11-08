@@ -1,8 +1,8 @@
-package fr.jjouenne.jpa.repository;
+package fr.jjouenne.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import fr.jjouenne.jpa.entity.Card;
+import fr.jjouenne.entity.Card;
 
 public interface CardRepository extends JpaRepository<Card, Long> {
 	
