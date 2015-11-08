@@ -46,4 +46,15 @@ public class CardTest {
 		System.out.println(found.getLibelle());
 		assertNotNull(found);
 	}
+	
+	@Test
+	public void testCreateOneCard() {
+		Card card = new Card();
+		card.setLibelle("carte3");
+		card.setDescription("description3");
+		card.setPv(30);
+		Card found = cardRepo.saveAndFlush(card);
+		System.out.println(found.getLibelle());
+		assertNotNull(found);
+	}
 }

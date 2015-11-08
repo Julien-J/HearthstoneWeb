@@ -9,5 +9,5 @@
 	<div class="form-group">
 		<label for="pv">Points de vie : </label> <input id="pv" type="text" ng-model="addCardController.card.pv">
 	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
+	<button ng-click="addCardController.add(addCardController.card)" type="submit" class="btn btn-default">Submit</button>
 </form>

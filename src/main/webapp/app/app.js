@@ -12,7 +12,7 @@ app.config(function($routeProvider)
 		 }).when('/card/:id',{
 			 templateUrl : 'pages/carte.html',
 			 controller : 'CardController as cardController'
-		 }).when('/card/addCard',{
+		 }).when('/addCard',{
 			 templateUrl : 'pages/createCard.html',
 			 controller : 'AddCardController as addCardController'
 		 });
