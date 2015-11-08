@@ -1,6 +1,6 @@
 'use strict';
 
 
-app.controller("CardController",function(Card){
+app.controller("CardController",["Card",function(Card){
 	this.cards = Card.query();	
-});
+}]);

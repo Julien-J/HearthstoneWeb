@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('hearthstoneApp', ["ngRoute","ngRessource"]);
+var app = angular.module('hearthstoneApp', ["ngRoute","ngResource"]);
 
 app.config(function($routeProvider) 
 {
