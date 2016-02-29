@@ -1,13 +1,30 @@
 <form role="form">
-
 	<div class="form-group">
-		<label for="libelle">Libelle:</label> <input id="libelle" type="text" ng-model="addCardController.card.libelle">
+		<label for="wording">Libellé:</label> <input id="wording" type="text" ng-model="addCardController.card.wording">
 	</div>
 	<div class="form-group">
 		<label for="description">Description :</label> <input id="description" type="text" ng-model="addCardController.card.description">
 	</div>
 	<div class="form-group">
-		<label for="pv">Points de vie : </label> <input id="pv" type="text" ng-model="addCardController.card.pv">
+		<label for="rarity">Rareté : </label> <input id="rarity" type="text" ng-model="addCardController.card.rarity">
 	</div>
-	<button ng-click="addCardController.add(addCardController.card)" type="submit" class="btn btn-default">Submit</button>
+	<div class="form-group">
+		<label for="dust_cost">Coût en poussière : </label> <input id="dust_cost" type="text" ng-model="addCardController.card.dust_cost">
+	</div>
+	<div class="form-group">
+		<label for="dust_value">Valeur en poussière : </label> <input id="dust_value" type="text" ng-model="addCardController.card.dust_value">
+	</div>
+	<div class="form-group">
+		<label for="extension">Extension : </label> <input id="extension" type="text" ng-model="addCardController.card.extension">
+	</div>
+	<div class="form-group">
+		<label for="picture">Future image : </label> <input id="picture" type="text" ng-model="addCardController.card.picture">
+	</div>
+	<div class="form-group">
+		<label for="mana_cost">Coût en mana : </label> <input id="mana_cost" type="text" ng-model="addCardController.card.mana_cost">
+	</div>
+	<div class="form-group">
+		<label for="classe">Classe : </label> <input id="classe" type="text" ng-model="addCardController.card.classe">
+	</div>
+	<button ng-click="addCardController.add(addCardController.card)" type="submit" class="btn btn-default">Créer une carte</button>
 </form>
